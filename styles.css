@@ -1,63 +1,251 @@
+/* config gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
-  margin: 0;
-  padding: 0;
-  line-height: 1.6;
+    font-family: 'Open Sans', Arial, sans-serif;
+    background-color: #f4f7f6; /* Fundo cinzento claro e confortável */
+    color: #333333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;    /* Fixa a altura na escala do ecrã */
+    overflow: hidden; /* Remove a barra de rolagem na página inicial */
 }
 
+/* elementos partilhados (header e footer) */
 header {
-  background-color: #1f1f1f;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: #2563eb; /* Azul sólido principal */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    flex-shrink: 0; /* Impede o cabeçalho de ser esmagado */
 }
 
-h1 {
-  font-size: 2.5em;
+header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
 }
 
-.content {
-  max-width: 80%;
-  margin: 20px auto;
-  text-align: center;
-}
-
-.info {
-  margin-bottom: 20px;
-  font-size: 1.1em;
-  color: #b0b0b0;
-}
-
-.video-container {
-  margin: 20px 0;
-  text-align: center;
-  background-color: #222;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-  padding: 15px;
-  border-radius: 8px;
-}
-
-.video-container iframe {
-  width: 100%;
-  max-width: 800px;
-  height: 450px;
-  margin: 0 auto;
-  display: block;
-  border-radius: 8px;
-}
-
-.separator {
-  display: none;
+header p {
+    font-size: 1rem;
+    color: #e0e7ff;
 }
 
 .footer {
-  background-color: #3498db;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-  width: 100%;
-  margin-top: 30px;
+    background-color: #1e293b; /* Azul escuro elegante */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.9rem;
+    flex-shrink: 0; /* Impede o rodapé de ser esmagado */
+}
+
+/* estrutura da página index.html */
+.content {
+    flex-grow: 1; /* Ocupa o espaço restante entre o header e o footer */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza a grelha no meio do ecrã */
+    padding: 20px;
+}
+
+/* inicial dos vídeos da grelha 2x2 */
+.grid-modulos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    max-height: 70vh;
+}
+
+/* os cards clicáveis */
+.card-modulo {
+    background-color: white;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.card-modulo:hover {
+    transform: scale(1.03); /* Efeito sutil ao passar o rato */
+}
+
+.card-imagem {
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+.card-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem sem a distorcer */
+}
+
+.card-texto {
+    padding: 12px;
+    text-align: center;
+    flex-shrink: 0;
+    background-color: white;
+}
+
+.card-texto h3 {
+    font-size: 1.1rem;
+    color: #2563eb;
+    margin-bottom: 5px;
+}
+
+.card-texto p {
+    font-size: 0.9rem;
+    color: #555555;
+}
+
+/* regras pras páginas internas */
+
+/* libera a rolagem apenas nas páginas de vídeo e empurra o rodapé para baixo */
+body.pagina-interna {
+    min-height: 100vh;
+    height: auto;
+    overflow: auto;
+}
+
+/* quebra o alinhamento centralizado da grelha e organiza em formato de lista (vertical) */
+body.pagina-interna .content {
+    display: block; 
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* botão de voltar */
+.botoes-acao {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.btn-voltar {
+    display: inline-block;
+    background-color: #1e293b;
+    color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-voltar:hover {
+    background-color: #334155;
+}
+
+/* caixa de texto informativo */
+.info {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+.info p {
+    font-size: 1.1rem;
+    color: #555555;
+    margin: 0;
+}
+
+/* bloco do vídeo */
+.video-container {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.video-container iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Mantém o formato padrão do YouTube */
+    height: auto;
+    border: none;
+    border-radius: 8px;
+    display: block;
+}
+
+/* adaptação para celular */
+@media (max-width: 600px) {
+    body {
+        height: auto;
+        overflow: auto;
+    }
+
+    .grid-modulos {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        max-height: none;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
+
+/* modal de boas vindas ao site */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+    color: #2563eb;
+    margin-top: 0;
+}
+
+.modal-content p {
+    color: #555555;
+    margin-bottom: 20px;
+}
+
+.modal-content button {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.modal-content button:hover {
+    background-color: #1d4ed8;
 }

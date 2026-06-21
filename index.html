@@ -3,27 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajudando Você a Dar os Primeiros Passos no Mundo Digital</title>
+    <title>Primeiros Passos no Mundo Digital - Início</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
-        <h1>Ajudando Você a Dar os Primeiros Passos no Mundo Digital</h1>
+        <h1>Aprenda Informática Passo a Passo</h1>
+        <p>Escolha um dos assuntos abaixo para começar a assistir aos vídeos</p>
     </header>
 
-    <div class="content">
-        <div class="info">
-            Este site foi criado para ajudar pessoas que estão começando a aprender a usar o computador e a internet. Aqui você encontrará vídeos e recursos que podem te ajudar a dar os primeiros passos de forma fácil e prática.
+    <main class="content">
+        
+        <div class="grid-modulos">
+
+            <a href="pages/perifericos.html" class="card-modulo">
+                <div class="card-imagem">
+                    <img src="images/perifericos.jpg" alt="Ilustração de Mouse e Teclado">
+                </div>
+                <div class="card-texto">
+                    <h3>Periféricos Básicos</h3>
+                    <p>Aprenda como funciona os periféricos do computador.</p>
+                </div>
+            </a>
+
+            <a href="pages/cpu.html" class="card-modulo">
+                <div class="card-imagem">
+                    <img src="images/cpu.jpg" alt="Processador de Computador">
+                </div>
+                <div class="card-texto">
+                    <h3>O que é a CPU?</h3>
+                    <p>Entenda o cérebro do computador de forma simples.</p>
+                </div>
+            </a>
+
+            <a href="pages/gpu.html" class="card-modulo">
+                <div class="card-imagem">
+                    <img src="images/gpu.jpg" alt="Ilustração de uma Placa de Vídeo">
+                </div>
+                <div class="card-texto">
+                    <h3>O que é a GPU?</h3>
+                    <p>Descubra o que faz os vídeos e as imagens aparecerem na tela.</p>
+                </div>
+            </a>
+
+            <a href="pages/internet.html" class="card-modulo">
+                <div class="card-imagem">
+                    <img src="images/internet.png" alt="Ilustração da Internet">
+                </div>
+                <div class="card-texto">
+                    <h3>O que é a Internet?</h3>
+                    <p>Entenda o que é a rede mundial de computadores de forma simples.</p>
+                </div>
+            </a>
+
         </div>
 
-        <div class="video-container">
-            <!-- Playlist do YouTube -->
-            <iframe width="100%" height="450" src="https://www.youtube.com/embed/videoseries?list=PLLxuMgPheaZrhbU-3qQs3CsaBXRq-pfEE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
+    </main>
 
-    <div class="footer">
+    <footer class="footer">
         <p>Plataforma Educativa desenvolvida como parte de um projeto acadêmico</p>
+    </footer>
+
+<div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <h2>Olá! Que bom ter você aqui.</h2>
+            <p>Escolha um dos assuntos na tela para começar a aprender de um jeito bem simples.</p>
+            <button id="closeModalBtn">Começar a aprender</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
